@@ -9,7 +9,7 @@ function App() {
             <HashRouter>
                 <Routes>
                     <Route path="/" element={<DocsLayout />}>
-                        <Route index element={<Navigate to="/docs/introduction" replace />} />
+                        <Route index element={<Navigate to="/docs/getting_started" replace />} />
                         <Route path="docs/*" element={<DocPage />} />
                     </Route>
                 </Routes>

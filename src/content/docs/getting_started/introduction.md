@@ -1,31 +1,77 @@
 ---
 title: Introduction to AgentLogos
-description: Overview of the AI Engineer knowledge base.
+description: Understanding the vision behind this knowledge base.
 date: 2026-02-09
 section_top_parent: Getting Started
 section_parent: Getting Started
 ---
 
-# AgentLogos
+# What is AgentLogos?
 
-Welcome to **AgentLogos**, a personal knowledge base and handbook for AI Engineering concepts.
+AgentLogos is a **personal knowledge vault** dedicated to the art and science of building AI agents that solve real-world problems.
 
-## Core Topics
+This isn't a comprehensive encyclopedia. It's a curated collection of insights, patterns, and practices that I've found essential in my journey building production AI systems.
 
-- **AI Engineer Core Skills**: From prompting to fine-tuning
-- **Agents in Production**: Building and deploying autonomous systems
-- **Code Patterns**: Practical examples and reusable patterns
+## Core Focus Areas
 
-## Key Concepts
+### Agents in Production
 
-1. **Agents**: Autonomous systems that can perceive, reason, and act
-2. **Tools**: Capabilities and APIs given to agents
-3. **Memory**: Persistence of state, context, and learned information
+Theory is easy. Production is hard. This vault focuses on:
 
-## Tech Stack
+- Reliability patterns for non-deterministic systems
+- Error handling and graceful degradation
+- Monitoring and observability
+- Cost optimization without sacrificing quality
 
-This documentation is built with:
+### Advanced Prompting
 
-- [React](https://react.dev) + [Vite](https://vitejs.dev)
-- [Tailwind CSS](https://tailwindcss.com) + [Shadcn UI](https://ui.shadcn.com)
-- Markdown with GFM support
+Beyond "write me a poem about cats":
+
+- Structured reasoning techniques
+- Context window optimization
+- Few-shot learning patterns
+- Prompt engineering for specific tasks
+
+### System Architecture
+
+How to structure agents that scale:
+
+- Tool use and function calling
+- Memory and context management
+- Multi-agent orchestration
+- Integration patterns with existing systems
+
+### Practical Patterns
+
+Real code, real examples:
+
+- Reusable templates
+- Common pitfalls and solutions
+- Performance optimization
+- Security considerations
+
+## The Philosophy
+
+AI engineering is still in its infancy. We're all figuring this out as we go. What separates successful implementations from failed experiments often comes down to:
+
+1. **Understanding the fundamentals** — Models change, principles don't
+2. **Testing in production** — Real users expose edge cases you never imagined
+3. **Iterating quickly** — The best prompt is the one you shipped yesterday and improved today
+4. **Staying pragmatic** — Use the simplest solution that solves the problem
+
+## Who This Is For
+
+This vault is primarily for me—a way to organize and access my own knowledge. But if you're:
+
+- Building AI agents for production
+- Tired of tutorial hell and want real-world patterns
+- Looking for battle-tested approaches
+- Interested in the messy reality of AI engineering
+
+Then you might find value here too.
+
+## Contributing
+
+See something wrong? Have a better approach? Want to share an insight?
+
+Open an issue or PR on [GitHub](https://github.com/oldaque/agentlogos). Knowledge grows when shared.
