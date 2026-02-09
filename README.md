@@ -1,60 +1,62 @@
-# AgentLogos 🤖
+<p align="center">
+  <img src="src/assets/AgentLogos.webp" alt="AgentLogos" width="180" />
+</p>
 
-AgentLogos is a personal knowledge base and handbook for **AI Engineering**. It's built to be a fast, minimal, and premium documentation site where notes can be added with zero friction.
+<p align="center">
+  <img src="src/assets/title.svg" alt="AgentLogos" width="280" />
+</p>
 
-## 🚀 Overview
+<p align="center">
+  <strong>A personal braindump on building AI agents that solve real-world problems.</strong>
+</p>
 
-- **Default Dark Mode**: Premium look out of the box.
-- **Dynamic Navigation**: Sidebar is automatically built from Markdown frontmatter.
-- **Frictionless Workflow**: Note-taking is separated from code logic.
-
-## 🛠️ Tech Stack
-
-- **Framework**: [React](https://react.dev) + [Vite](https://vitejs.dev)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com) + [Shadcn UI](https://ui.shadcn.com)
-- **Markdown**: `react-markdown` with GFM support and `@tailwindcss/typography`.
-- **Package Manager**: [Bun](https://bun.sh)
-
-## 📝 Frictionless Documentation Workflow
-
-The project uses a root `/docs` folder as the source of truth.
-
-### 1. Create a Note
-Add a `.md` file to the root `docs/` directory.
-
-### 2. Tag it
-Add frontmatter tags to guide the navigation:
-
-```yaml
----
-title: My New Note
-description: Brief summary.
-date: 2026-02-09
-section_top_parent: AI Engineering
-section_parent: Agents in Production
----
-```
-
-### 3. Run
-```bash
-bun run dev
-```
-The system will:
-1. Sync `docs/` -> `src/content/docs`.
-2. Parse all tags.
-3. Automatically update the Sidebar and render the page.
+<p align="center">
+  <a href="https://oldaque.github.io/agentlogos">📖 Access Documentation</a> ·
+  <a href="README-ptbr.md">🇧🇷 Português</a>
+</p>
 
 ---
 
-## 🏃 Getting Started
+## Why does this repository exist?
 
-```bash
-# Install dependencies
-bun install
+Over the past few years, I've been diving deep into the world of AI agents. I've read papers, watched talks, experimented with frameworks, wrestled with prompts, and most importantly: **put agents into production**.
 
-# Run development server
-bun run dev
+The problem? Knowledge was scattered everywhere. Notes in Notion, lost bookmarks, snippets in random repositories, insights I vaguely remembered writing down "somewhere".
 
-# Build for production
-bun run build
-```
+**AgentLogos** is my solution to that.
+
+## What you'll find here
+
+This is not a generic tutorial. It's a **personal vault** focused on:
+
+- **Patterns that work** — Things I actually use in production
+- **Lessons learned** — Mistakes I made so you don't have to repeat them
+- **Agent architectures** — How to structure systems that scale
+- **Advanced prompting** — Beyond the basics, techniques that make a difference
+- **Tools and integrations** — The ecosystem I trust
+
+## Philosophy
+
+> *"The map is not the territory."* — Alfred Korzybski
+
+Frameworks change. Models evolve. What remains are the **fundamental principles** of how to build intelligent systems that solve real problems.
+
+My focus here is on what works in the real world, not what's hype. If something is in this repository, it's because I use it, tested it, and believe it's worth sharing.
+
+## Contributing
+
+This is a personal project, but knowledge grows when shared.
+
+If you:
+- Found an error or outdated information
+- Have a suggestion for improvement
+- Want to share an insight or experience
+- Know a pattern that should be here
+
+**Open an issue or PR.** All contributions are welcome.
+
+---
+
+<p align="center">
+  <sub>Made with obsession for agents that actually work.</sub>
+</p>
