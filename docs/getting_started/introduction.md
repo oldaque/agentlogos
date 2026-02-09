@@ -2,6 +2,7 @@
 title: Introduction to AgentLogos
 description: Understanding the vision behind this knowledge base.
 date: 2026-02-09
+order: 1
 section_top_parent: Getting Started
 section_parent: Getting Started
 ---

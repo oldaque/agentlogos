@@ -2,6 +2,7 @@
 title: Core Concepts
 description: The essential components that make up an AI agent.
 date: 2026-02-09
+order: 1
 section_top_parent: Agent Building
 section_parent: Core Concepts
 ---

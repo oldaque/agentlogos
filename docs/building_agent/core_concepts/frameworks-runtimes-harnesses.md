@@ -2,6 +2,7 @@
 title: "Frameworks, Runtimes, and Harnesses"
 description: Understanding the difference between frameworks, runtimes, and harnesses — and why this separation of concepts is here to stay.
 date: 2025-02-09
+order: 2
 section_top_parent: Agent Building
 section_parent: Core Concepts
 ---

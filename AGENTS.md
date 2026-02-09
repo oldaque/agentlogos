@@ -42,6 +42,7 @@ Every note **MUST** have this frontmatter at the top:
 title: Note Title Here
 description: A brief one-line description of the content.
 date: YYYY-MM-DD
+order: 1
 section_top_parent: Section Name
 section_parent: Section Name
 ---
@@ -54,6 +55,7 @@ section_parent: Section Name
 | `title` | Yes | Display title of the note |
 | `description` | Yes | Brief summary (shown below title) |
 | `date` | Yes | Creation/update date (YYYY-MM-DD) |
+| `order` | Yes | Numeric position in sidebar (lower = higher). Controls sort order for both sections and items within sections |
 | `section_top_parent` | Yes | Top-level section in sidebar |
 | `section_parent` | Yes | Parent section (can equal section_top_parent) |
 
@@ -62,6 +64,13 @@ section_parent: Section Name
 - If `section_top_parent == section_parent` → Note appears directly under the macro section
 - If `section_top_parent != section_parent` → Note appears in a subsection
 - If `filename == section_parent` (slugified) → Note becomes the section index
+
+### Ordering Logic
+
+- The `order` field on an **index page** (where filename matches section name) controls the position of that **entire section** in the sidebar
+- The `order` field on a **regular page** controls its position within its parent section
+- Lower numbers appear first (e.g., `order: 1` before `order: 2`)
+- Items without `order` are placed last
 
 ### Step 3: Write the content
 
@@ -76,6 +85,7 @@ Use this template when creating new notes:
 title: {TITLE}
 description: {BRIEF_DESCRIPTION}
 date: {YYYY-MM-DD}
+order: {NUMBER}
 section_top_parent: {TOP_SECTION}
 section_parent: {PARENT_SECTION}
 ---
@@ -98,6 +108,7 @@ section_parent: {PARENT_SECTION}
 title: Chain of Thought
 description: Breaking down complex reasoning into steps.
 date: 2026-02-09
+order: 1
 section_top_parent: Prompting
 section_parent: Prompting
 ---
@@ -116,6 +127,7 @@ Result: Appears under "Prompting" section in sidebar.
 title: ReAct Pattern
 description: Combining reasoning and acting in agents.
 date: 2026-02-09
+order: 1
 section_top_parent: Agents
 section_parent: Agent Patterns
 ---
@@ -134,6 +146,7 @@ Result: Appears under "Agents" → "Agent Patterns" in sidebar.
 title: Agents
 description: Building autonomous AI systems.
 date: 2026-02-09
+order: 3
 section_top_parent: Agents
 section_parent: Agents
 ---

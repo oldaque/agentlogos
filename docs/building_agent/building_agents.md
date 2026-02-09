@@ -1,7 +1,8 @@
 ---
-title: Building Agents
+title: Agent Building
 description: Moving from simple prompts to reliable AI systems.
 date: 2026-02-09
+order: 2
 section_top_parent: Agent Building
 section_parent: Agent Building
 ---
