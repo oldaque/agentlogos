@@ -1,10 +1,12 @@
 ---
-title: "Frameworks, Runtimes, and Harnesses: The Three Layers of Agent Construction"
+title: "Frameworks, Runtimes, and Harnesses"
 description: Understanding the difference between frameworks, runtimes, and harnesses — and why this separation of concepts is here to stay.
 date: 2025-02-09
 section_top_parent: Agent Building
 section_parent: Core Concepts
 ---
+
+# Frameworks, Runtimes, and Harnesses: The Three Layers of Agent Construction
 
 Every passing day I see more YouTube videos, X posts, Reddit threads — everyone with a "revolutionary new way" to build AI agents. And when you look closely, the person hasn't even structured the fundamental concepts of what building a real agent actually is. They put a wrapper on top of an API, call it an agent, and start selling courses.
 
