@@ -2,6 +2,7 @@
 title: Getting Started
 description: Welcome to a personal vault for AI Engineering.
 date: 2026-02-09
+order: 1
 section_top_parent: Getting Started
 section_parent: Getting Started
 ---

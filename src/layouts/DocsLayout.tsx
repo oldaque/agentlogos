@@ -12,7 +12,7 @@ export default function DocsLayout() {
             <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                 <div className="container flex h-14 items-center px-6">
                     <div className="mr-4 hidden md:flex">
-                        <a href="/" className="flex items-center gap-2">
+                        <a href={import.meta.env.BASE_URL} className="flex items-center gap-2">
                             <img src={logoImage} alt="AgentLogos" className="h-8 w-8" />
                             <span className="font-bold text-lg">
                                 AgentLogos
@@ -31,7 +31,7 @@ export default function DocsLayout() {
                         </SheetTrigger>
                         <SheetContent side="left" className="pr-0">
                             <div className="px-6 py-2">
-                                <a href="/" className="flex items-center gap-2">
+                                <a href={import.meta.env.BASE_URL} className="flex items-center gap-2">
                                     <img src={logoImage} alt="AgentLogos" className="h-8 w-8" />
                                     <span className="font-bold text-lg">AgentLogos</span>
                                 </a>
@@ -40,7 +40,7 @@ export default function DocsLayout() {
                         </SheetContent>
                     </Sheet>
                     {/* Mobile logo - visible only on mobile */}
-                    <a href="/" className="flex items-center gap-2 md:hidden">
+                    <a href={import.meta.env.BASE_URL} className="flex items-center gap-2 md:hidden">
                         <img src={logoImage} alt="AgentLogos" className="h-7 w-7" />
                         <span className="font-bold">AgentLogos</span>
                     </a>

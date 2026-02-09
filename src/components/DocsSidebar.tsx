@@ -4,6 +4,7 @@ import { ChevronDown, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { dynamicDocsConfig as docsConfig } from "@/lib/docs-loader"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import type { DocItem, DocSection } from "@/config/docs"
 
 interface DocsSidebarProps extends React.HTMLAttributes<HTMLDivElement> { }
 
@@ -11,19 +12,34 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
     const location = useLocation()
     const pathname = location.pathname
 
-    // Initialize all sections as expanded
+    // State to track expanded status of sections and subsections
     const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>(() => {
         const initial: Record<string, boolean> = {}
-        docsConfig.forEach((section) => {
-            initial[section.title] = true
-        })
+        // Recursively initialize all sections with items as expanded
+        const initExpanded = (items: (DocSection | DocItem)[]) => {
+            items.forEach(item => {
+                if ('items' in item && item.items && item.items.length > 0) {
+                    initial[item.title] = true
+                    initExpanded(item.items)
+                }
+            })
+        }
+        initExpanded(docsConfig)
         return initial
     })
 
-    const toggleSection = (title: string) => {
+    const toggleSection = (title: string, e?: React.MouseEvent) => {
+        if (e) e.preventDefault()
         setExpandedSections(prev => ({
             ...prev,
             [title]: !prev[title]
+        }))
+    }
+
+    const ensureExpanded = (title: string) => {
+        setExpandedSections(prev => ({
+            ...prev,
+            [title]: true
         }))
     }
 
@@ -41,7 +57,7 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
                                 <div className="flex items-center">
                                     {hasItems && (
                                         <button
-                                            onClick={() => toggleSection(section.title)}
+                                            onClick={(e) => toggleSection(section.title, e)}
                                             className="p-1 hover:bg-muted rounded-md mr-1"
                                         >
                                             {isExpanded ? (
@@ -55,6 +71,7 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
                                     {section.href ? (
                                         <Link
                                             to={section.href}
+                                            onClick={() => hasItems && ensureExpanded(section.title)}
                                             className={cn(
                                                 "flex-1 rounded-md px-2 py-1.5 text-sm font-semibold transition-colors",
                                                 isActive
@@ -65,33 +82,53 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
                                             {section.title}
                                         </Link>
                                     ) : (
-                                        <span className="flex-1 px-2 py-1.5 text-sm font-semibold text-foreground">
+                                        <span
+                                            onClick={() => hasItems && toggleSection(section.title)}
+                                            className="flex-1 px-2 py-1.5 text-sm font-semibold text-foreground cursor-pointer"
+                                        >
                                             {section.title}
                                         </span>
                                     )}
                                 </div>
 
                                 {hasItems && isExpanded && (
-                                    <div className="ml-6 mt-1 border-l border-border pl-2">
+                                    <div className="ml-6 mt-1 border-l border-border pl-2 space-y-1">
                                         {section.items.map((item, itemIndex) => {
                                             const itemActive = pathname === item.href
                                             const hasSubItems = (item.items?.length ?? 0) > 0
+                                            const isSubExpanded = expandedSections[item.title]
 
                                             return (
                                                 <div key={itemIndex}>
-                                                    <Link
-                                                        to={item.href}
-                                                        className={cn(
-                                                            "block rounded-md px-2 py-1 text-sm transition-colors",
-                                                            itemActive
-                                                                ? "bg-primary/10 font-medium text-primary"
-                                                                : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
+                                                    <div className="flex items-center">
+                                                        {hasSubItems && (
+                                                            <button
+                                                                onClick={(e) => toggleSection(item.title, e)}
+                                                                className="p-1 hover:bg-muted rounded-md mr-1"
+                                                            >
+                                                                {isSubExpanded ? (
+                                                                    <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
+                                                                ) : (
+                                                                    <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
+                                                                )}
+                                                            </button>
                                                         )}
-                                                    >
-                                                        {item.title}
-                                                    </Link>
-                                                    {hasSubItems && (
-                                                        <div className="ml-3 mt-1 border-l border-border/50 pl-2">
+                                                        <Link
+                                                            to={item.href}
+                                                            onClick={() => hasSubItems && ensureExpanded(item.title)}
+                                                            className={cn(
+                                                                "flex-1 rounded-md px-2 py-1 text-sm transition-colors",
+                                                                itemActive
+                                                                    ? "bg-primary/10 font-medium text-primary"
+                                                                    : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
+                                                            )}
+                                                        >
+                                                            {item.title}
+                                                        </Link>
+                                                    </div>
+
+                                                    {hasSubItems && isSubExpanded && (
+                                                        <div className="ml-4 mt-1 border-l border-border/50 pl-2 space-y-1">
                                                             {item.items!.map((subItem, subIndex) => (
                                                                 <Link
                                                                     key={subIndex}
