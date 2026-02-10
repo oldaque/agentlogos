@@ -4,6 +4,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Menu, Github } from "lucide-react"
 import { ModeToggle } from "@/components/mode-toggle"
+import { Search } from "@/components/Search"
 import logoImage from "@/assets/AgentLogos.webp"
 
 export default function DocsLayout() {
@@ -45,7 +46,10 @@ export default function DocsLayout() {
                         <span className="font-bold">AgentLogos</span>
                     </a>
                     <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-                        <div className="flex items-center gap-2">
+                        <div className="w-full flex-1 md:w-auto md:flex-none">
+                            <Search />
+                        </div>
+                        <div className="flex items-center gap-1">
                             <Button
                                 variant="ghost"
                                 size="icon"
